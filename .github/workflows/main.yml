@@ -33,22 +33,12 @@ jobs:
               git fetch
               git checkout main
               git branch -a
-        
-      - name: Move scripts and setting files to gh-pages branch
-        run : |
-              git checkout origin/main -- ./settings.yml
-              git reset -- ./settings.yml
-      - name: Set Translate API key
-        run: yq -i e '.keys.translate-api = "${{ secrets.TRANSLATEAPI }}"' settings.yml
-
-      - name: Read setting file
-        run: yq -o=props settings.yml > ./settings.props
          
       - name: Clone repository
-        run : git clone $(cat settings.props | grep "document.translated.url" | cut -f 2 -d '=' | tr -d ' ') ${{ env.working-directory }}
+        run : git clone https://github.com/waroad/2022_knu_hack
           
       - name: Add upstream
-        run : git remote add upstream $(cat ../settings.props | grep "document.original.url" | cut -f 2 -d '=' | tr -d ' ')
+        run : git remote add upstream https://github.com/waroad/test1234
         working-directory: ${{ env.working-directory }}
       
       - name: Print repository
@@ -60,17 +50,11 @@ jobs:
         working-directory: ${{ env.working-directory }}
         
       - name: Checkout to upstream
-        run : git checkout upstream/$(cat ../settings.props | grep "document.original.branch" | cut -f 2 -d '=' | tr -d ' ')
+        run : git checkout  https://github.com/waroad/test1234
         working-directory: ${{ env.working-directory }}
         
-      - name: Copy python scripts & settings file
-        run : |
-              cp -r scripts ${{ env.working-directory }}
-              cp -r data ${{ env.working-directory }}
-              cp settings.yml ${{ env.working-directory }}
-        
       - name: Run python script
-        run : python scripts/git_diff.py $(cat ../settings.props | grep "document.original.branch" | cut -f 2 -d '=' | tr -d ' ') upstream/$(cat ../settings.props | grep "document.original.branch" | cut -f 2 -d '=' | tr -d ' ') _posts/$(date --rfc-3339=date)-$(cat ../settings.props | grep "document.title" | cut -f 2 -d '=' | tr -d ' ').md
+        run : po2md readme.md --pofiles readme.po --quiet --save readmekr.md
         working-directory: ${{ env.working-directory }}
 
       - name: Set config
