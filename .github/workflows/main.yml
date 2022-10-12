@@ -49,7 +49,7 @@ jobs:
         working-directory: ./
         
       - name: Checkout to upstream
-        run : git checkout  https://github.com/waroad/test1234
+        run : git checkout main
         working-directory: ./
         
       - name: Run python script
