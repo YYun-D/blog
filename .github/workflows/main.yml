@@ -60,11 +60,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run : |
-          git config --global user.email ${{ secrets.USER_EMAIL }}
-          git config --global user.name ${{ secrets.USER_NAME }}
+          git config --global user.email yeoyundong@gamil.com
+          git config --global user.name YYun-D
         
       - name: Push to gh-pages branch
         run : |
-          git add _posts/*.md
+          git add .
           git commit -m "$(date --rfc-3339=date) post added"
-          git push origin gh-pages --force
+          git push origin main --force
