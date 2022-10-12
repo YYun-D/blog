@@ -1,0 +1,14 @@
+document:
+
+  title: Azure-Sdk
+
+  original:
+    url:https://github.com/waroad/test1234.git
+    branch: main
+
+  translated:
+    url: https://github.com/waroad/2022_knu_hack.git
+    translated-branch: main
+
+keys:
+  translate-api: update-api-at-github-action-secret
