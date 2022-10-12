@@ -38,7 +38,7 @@ jobs:
         run : git clone https://github.com/waroad/2022_knu_hack
           
       - name: Add upstream
-        run : git remote add upstream https://github.com/waroad/test1234
+        run : git remote add upstream https://github.com/waroad/test1234.git
         working-directory: ${{ env.working-directory }}
       
       - name: Print repository
