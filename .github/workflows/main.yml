@@ -39,23 +39,23 @@ jobs:
           
       - name: Add upstream
         run : git remote add upstream https://github.com/waroad/test1234.git
-        working-directory: main
+        working-directory: ./
       
       - name: Print repository
         run : git remote -v
-        working-directory: main
+        working-directory: ./
 
       - name: Fetch upstream
         run : git fetch upstream
-        working-directory: main
+        working-directory: ./
         
       - name: Checkout to upstream
         run : git checkout  https://github.com/waroad/test1234
-        working-directory: main
+        working-directory: ./
         
       - name: Run python script
         run : po2md readme.md --pofiles readme.po --quiet --save readmekr.md
-        working-directory: main
+        working-directory: ./
 
       - name: Set config
         env:
