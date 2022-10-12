@@ -36,8 +36,8 @@ jobs:
         
       - name: Move scripts and setting files to gh-pages branch
         run : |
-              git checkout origin/main -- ./scripts ./data ./settings.yml
-              git reset -- ./scripts ./data ./settings.yml
+              git checkout origin/main -- ./settings.yml
+              git reset -- ./settings.yml
       - name: Set Translate API key
         run: yq -i e '.keys.translate-api = "${{ secrets.TRANSLATEAPI }}"' settings.yml
 
