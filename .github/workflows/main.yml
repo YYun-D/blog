@@ -53,7 +53,7 @@ jobs:
         working-directory: ./
         
       - name: Run python script
-        run : po2md readme.md --pofiles readme.po --quiet --save readmekr.md
+        run : po2md wow.md --pofiles wow.po --quiet --save wow2.md
         working-directory: ./
 
       - name: Set config
