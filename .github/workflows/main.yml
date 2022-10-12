@@ -4,7 +4,6 @@ name: mdpo
 
 # Controls when the workflow will run
 on: [push]
-
  
 jobs:
   build:
